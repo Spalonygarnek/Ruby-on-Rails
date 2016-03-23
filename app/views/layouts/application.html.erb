@@ -8,9 +8,51 @@
 </head>
 <body>
 
-<p class=" notice"><%=notice %></p>
-<p class  = "alert"><%=alert %> </p>
-<%= yield %>
 
+!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+               <!-- <a class="navbar-brand" href="#">Start Bootstrap</a>-->s
+                <%= link_to "Kursy u MIchala",root_url, class: "navbar-brand" %>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                    	<%= link_to "Nauczanie", post_index_path %>
+                    </li>
+                    <li>
+                    	<%= link_to "Zaloguj sie ",new_admin_session_path %> 
+                    </li>
+                 
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+<br><br><br>
+<div class="cointeiner">
+   <div class="row">
+   		<div class="col-lg-12 text-center">
+   		<% flash.each do |a, b|%>
+   		<div class=" alert alert-success"><%=b %></div>
+
+		<%end%>
+			<%= yield %>
+   		
+		</div>
+	</div>
+</div>
 </body>
 </html>
